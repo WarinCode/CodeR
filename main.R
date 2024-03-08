@@ -11,9 +11,18 @@ data <- read.csv(file="C:\\Users\\ACER USER5949486\\Desktop\\CodeR\\data.csv")
 
 # Compute Z-value
 data1 <- as.numeric(data$Pay)
-n <- nrow(data1)
 xbar <- mean(data$Pay)
-sd <- sd(data1)
 mu <- 200
+sigma <- sum(data1)
+n <- nrow(data)
+z <- (xbar - mu) / (sigma / sqrt(n))
 
-data$Pay
+z
+
+# Compute Critical value
+alpha <- .05
+z.alpha <- qnorm(alpha)
+
+# Compute p-value
+p.value <- pnorm(z)
+cat("p-value :" , pval)
