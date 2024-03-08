@@ -13,16 +13,23 @@ data <- read.csv(file="C:\\Users\\ACER USER5949486\\Desktop\\CodeR\\data.csv")
 data1 <- as.numeric(data$Pay)
 xbar <- mean(data$Pay)
 mu <- 200
-sigma <- sum(data1)
-n <- nrow(data)
+sigma <- sum(data1) # 7122
+n <- nrow(data) # 64
 z <- (xbar - mu) / (sigma / sqrt(n))
-
-z
 
 # Compute Critical value
 alpha <- .05
-z.alpha <- qnorm(alpha)
+z.alpha <- qnorm(1 - alpha)
+
+sprintf("computed Z value : %.2f", z)
+sprintf("critical Z value : %.2f", z.alpha)
 
 # Compute p-value
 p.value <- pnorm(z)
-cat("p-value :" , pval)
+sprintf("p-value : %.2f" , p.value)
+
+if(p.value >= alpha){
+  print("Accept H0")
+} else {
+  print("Reject H0")
+}
