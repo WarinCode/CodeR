@@ -24,7 +24,7 @@ alpha <- .05 / 2
 z.alpha <- qnorm(1 - alpha) # 1.96
 
 sprintf("computed Z value : %.2f", z)
-sprintf("critical Z value : %.2f", z.alpha)
+sprintf("critical Z value : %.2f and %.2f", -z.alpha, z.alpha)
 
 # Compute p-value
 p.value <- pnorm(z)
